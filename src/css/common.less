@@ -1,0 +1,81 @@
+// 浮动
+.fl (@type: left) {
+    float: @type;
+}
+
+// 清除浮动
+.clearfix () {
+    display: block;
+    &:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+    *zoom: 1; 
+}
+
+// 重设列表的样式
+.reset-list () {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+// 文字居中
+.middle-text(@height) {
+    height: @height;
+    line-height: @height;
+}
+
+// 不透明度
+.opacity (@opacity) {
+    opacity: @opacity / 100;
+    filter: ~"alpha(opacity=@{opacity})";
+}
+
+// 提供inline-block的兼容显示效果
+.inline-block () {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+// 内容截断显示...
+.ellipse-overflow () {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+// CSS3 相关
+
+// 圆角
+.border-radius (...) {      
+    -moz-border-radius: @arguments;
+    -webkit-border-radius: @arguments;
+    border-radius: @arguments;
+}
+
+
+// 阴影
+// @x 横轴偏移
+// @y 纵轴偏移
+// @blur 阴影偏移
+// @color 阴影颜色
+.box-shadow (...) {
+    -moz-box-shadow: @arguments;
+    -webkit-box-shadow: @arguments;
+    box-shadow: @arguments;
+}
+
+// 盒模型计算模式
+// @type border-box | content-box
+.box-sizing (@type: border-box) {
+    -webkit-box-sizing: @type;
+    -moz-box-sizing: @type;
+    -ms-box-sizing: @type;
+    box-sizing: @type;
+}
